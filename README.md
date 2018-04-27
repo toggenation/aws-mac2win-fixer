@@ -18,14 +18,19 @@ command.sh gets an object list from your bucket and pipes it to the first argume
 Edit command.sh to change --bucket and --prefix values as necessary
 
 e.g.
+```bash
+aws s3api list-objects --bucket yourBucket --prefix Documents --query 'Contents[].[Key]' --output text > $1
+```
 
+Run the shell script with a output filename arg
 ```bash
 ./command.sh docs
 ```
-creates 
+creates two files:
 
-docs
-docsout
+docs - is the list of everything in your s3 bucket
+
+docsout - is the list of all paths that have windows incompatible characters in them
 
 aws-s3-mac2win.php reads docsout to an array and loops through each path and creates a new compatible file and path name. It then escapes the filename arguments ready to pass to the aws cli.
 
