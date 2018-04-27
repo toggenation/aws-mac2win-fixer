@@ -6,6 +6,8 @@ $bucket = 'yourBucketHere';
 
 $s3 = 's3://' . $bucket . '/';
 
+$cmd = 'aws s3 mv --dryrun '; # not really
+
 # edit to your taste good idea to do dry run first
 #$cmd = 'aws s3 mv --recursive ';
 

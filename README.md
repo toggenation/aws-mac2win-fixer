@@ -29,12 +29,20 @@ docsout
 
 aws-s3-mac2win.php reads docsout to an array and loops through each path and creates a new compatible file and path name. It then escapes the filename arguments ready to pass to the aws cli.
 
-Edit aws-s3-mac2win.php and change bucket and file
+Edit aws-s3-mac2win.php and change bucket, cmd and file
 
 ```php
 $lines = file('docsout'); # reads the file into an array for looping through
 
 $bucket = 'yourBucketHere';
+
+$cmd = 'aws s3 mv --dryrun '; # dry run before you try for real is a good idea
+```
+
+Then you run aws-s3-mac2win.php which will exec aws cli with what ever arguments you configure
+
+```bash
+php aws-s3-mac2win.php
 ```
 
 You need PHP, gnu grep and aws cli installed:
