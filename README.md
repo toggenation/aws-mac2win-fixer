@@ -52,8 +52,10 @@ php aws-s3-mac2win.php
 
 You need PHP, gnu grep and aws cli installed:
 
+```bash
 brew install grep
 pip install awscli
+```
 
-(not sure how to install php it might come installed)
+(not sure how to install PHP it might come installed)
 
